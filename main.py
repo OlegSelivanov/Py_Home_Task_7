@@ -14,18 +14,18 @@
 """
 
 
-# # 1 вариант (через функцию)
+# 1 вариант (через функцию)
 
-# def f(rep):                                                # функция f принимает rep(text) - можно называть по разному
-#     return sum(1 for i in rep if i in 'а')                 # возвращает сумму повторов (1) буквы 'a' в rep(text)
+def f(rep):                                                # функция f принимает rep(text) - можно называть по разному
+    return sum(1 for i in rep if i in 'а')                 # возвращает сумму повторов (1) буквы 'a' в rep(text)
     
-# text = input("Введите стихотворение: ").lower().split()    
-# t = f(text[0])                                              # <class 'int'> в переменную t записала результат вызова f для индекса 0
+text = input("Введите стихотворение: ").lower().split()    
+t = f(text[0])                                              # <class 'int'> в переменную t записала результат вызова f для индекса 0
                                              
-# if all([f(i) == t for i in text]):                          # функция all для всех вызовов фукнции f, если все True
-#     print("Парам пам-пам")
-# else:
-#     print("Пам парам")
+if all([f(i) == t for i in text]):                          # функция all для всех вызовов фукнции f, если все True
+    print("Парам пам-пам")
+else:
+    print("Пам парам")
 
 
 # 2 вариант (через lambda)
@@ -61,12 +61,12 @@ print_operation_table(lambda x, y: x * y)       1 2 3 4 5 6
 """
 
 
-# def print_operation_table(operation, num_rows = 6, num_columns = 6):
-#     for i in range(1, num_rows + 1):
-#         table=[]
-#         for j in range(1, num_columns +1):
-#             table.append(str(operation(i, j)))          # str - т.к. список строк(многомерный массив)
-#         print('\t'.join(table))                         # .join обратная split() список превращает в строку 
-#                                                         # '\t'табуляция        
-# print_operation_table(lambda x, y: x * y)  
+def print_operation_table(operation, num_rows = 6, num_columns = 6):
+    for i in range(1, num_rows + 1):
+        table=[]
+        for j in range(1, num_columns +1):
+            table.append(str(operation(i, j)))          # str - т.к. список строк(многомерный массив)
+        print('\t'.join(table))                         # .join обратная split() список превращает в строку 
+                                                        # '\t'табуляция        
+print_operation_table(lambda x, y: x * y)  
 
